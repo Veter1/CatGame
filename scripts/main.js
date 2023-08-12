@@ -7,7 +7,7 @@ const fishSound1 = new Audio('../res/sounds/fish_1.mp3');
 const fishSound2 = new Audio('../res/sounds/fish_2.mp3');
 let selectAnimal = 'mouse', selectDuration = 3000, score = 0, permissionToMove = false;
 let animalWidth = 180, animalHeight = 72, currentAngelRotation = 0, timer;
-mouseSound.loop = true; mouseSound.volume = 0.3;
+mouseSound.loop = true; mouseSound.volume = 0.2;
 fishSound1.loop = true; fishSound1.volume = 0.25;
 fishSound2.loop = true; fishSound2.volume = 0.4;
 
@@ -121,9 +121,9 @@ function setMoveSpeed(newX, newY){
 
     kef = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))
 
-    if (kef > 200)
+    if (kef > 200 && kef < 501)
         moveSpeed = 2;
-    else if (kef > 500)
+    else if (kef > 500 && kef < 901)
         moveSpeed = 3.5;
     else if (kef > 900)
         moveSpeed = 5;
@@ -208,11 +208,11 @@ function catchAnimal(){
     clearTimeout(timer);
     animal.style = animal.style.cssText + "transition-duration: 0s; opacity: 0;";
     setTimeout(()=>{
-        animal.style = animal.style.cssText + "top: -100px; left: -210px; transform: rotate(0deg);";
-        animal.style.opacity = 1;
-        permissionToMove = true;
-        setTimeout(()=> animalMove(), 200)
-    }, 500);
+        animal.style = animal.style.cssText + "top: -100px; left: -210px; transform: rotate(0deg);";        
+        setTimeout(()=> {
+            animal.style = animal.style.cssText + "opacity: 1;";
+            permissionToMove = true; animalMove(); }, 300)
+    }, 600);
 }
 
 // func on end game
