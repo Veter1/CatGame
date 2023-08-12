@@ -1,0 +1,123 @@
+@charset "UTF-8";
+/* Обнуляющий ксс */
+@import url(null.css);
+
+body{
+    /* colors */
+    --color-red: #F24B4B;
+    --color-black: #252422;
+    --color-white: #F2F0D8;
+    --color-white-shadow: #a1a1a1;
+    overflow: hidden;
+    position:fixed;
+
+    .window{
+        height: 100dvh;
+        width: 100dvw;
+        font: italic small-caps bold 16px/2 cursive;
+    }
+
+    .menuWindow{
+        background-color: var(--color-red);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        .subWindow{
+            width: 420px;
+            height: 440px;
+            background-color: var(--color-black);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            .btn{
+                background-color: var(--color-white);
+                width: 100px;
+                height: 50px;
+                border-radius: 10px;
+                box-shadow: 7px 6px 8px var(--color-white-shadow);
+                outline: none;
+                font-size: 20px;
+                color: var(--color-black);
+            }
+            .radio-inputs {
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+                border-radius: 0.5rem;
+                background-color: var(--color-white);
+                box-sizing: border-box;
+                box-shadow: 7px 6px 8px var(--color-white-shadow);
+                padding: 0.25rem;
+                width: 330px;
+                .header{
+                    position: absolute;
+                    left: 20%;
+                    top: -80%;
+                    color: var(--color-white);
+                    font-size: 20px;
+                }
+                .radio {
+                    flex: 1 1 auto;
+                    text-align: center;
+                    .name {
+                        display: flex;
+                        cursor: pointer;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 0.5rem;
+                        border: none;
+                        padding: .5rem 0;
+                        color: var(--color-black);
+                        transition: all .15s ease-in-out;
+                        outline: none;
+                    }
+                }
+                .radio input {
+                    display: none;
+                    &:checked + .name {
+                        background-color: var(--color-red);
+                        font-weight: 600;
+                    }
+                }
+                &.animalList{ width: 250px }
+            }
+        }
+    }
+    .gameWindow{
+        background-color: gray;
+        position: relative;
+        overflow: hidden;
+        .animal{
+            position: absolute;
+            background: transparent;
+            width: 200px;
+            height: 80px;
+            left: 100px;
+            top: 200px;
+            transition-duration: 0.5s;            
+        }
+        .score{
+            position: absolute;
+            color: var(--color-black);
+            font: italic small-caps bold 42px cursive;
+            left: 45%;
+            bottom: 10%;
+        }
+        .btn{
+            position: absolute;
+            background-color: transparent;
+            color: var(--color-black);
+            font: italic small-caps bold 32px cursive;
+            left: 0;
+            top: 0;
+        }
+        display: none;
+    }
+}
+@viewport {
+    user-zoom: fixed;
+}
